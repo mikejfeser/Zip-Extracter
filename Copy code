@@ -9,7 +9,7 @@ for file in os.listdir():
             #extracts contents to 'TEMP' folder, feel free to change name
             #this could be a folder that already exists or if not it will create it
                 zipObj.extractall('C:/Users/you/randomFolder/TEMP')
-#file is the name of the zip folder that os.listdir found                
+#file is the name of the zip file that os.listdir found, we'll then split that file into it's filename and extension                
             f_name, f_ext = os.path.splitext(file)
 #sets the name of the zip folder without the extension as variable x
 x = f_name
