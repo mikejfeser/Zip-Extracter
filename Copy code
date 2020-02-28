@@ -1,0 +1,28 @@
+from zipfile import ZipFile, os, shutil
+#sets the directory that contains the zip file
+os.chdir('C:/Users/you/Downloads')
+
+#basically determines which file is a zip file, unzips it and extracts it into the TEMP folder
+for file in os.listdir():
+        if file.endswith(".zip"):
+            with ZipFile(file, 'r') as zipObj:
+            #extracts contents to 'TEMP' folder, feel free to change name
+            #this could be a folder that already exists or if not it will create it
+                zipObj.extractall('C:/Users/you/randomFolder/TEMP')
+#file is the name of the zip folder that os.listdir found                
+            f_name, f_ext = os.path.splitext(file)
+#sets the name of the zip folder without the extension as variable x
+x = f_name
+
+#this is specifically if your zip file creates a sub directory with the same exact file name
+#sets new directory to sub folder in sub directory of extracted zip folder
+os.chdir('C:/Users/you/randomFolder/TEMP/' + x + '/subFolder')
+#now we're going to copy it all back to that main directory where the original zip file lives
+for f in os.listdir():
+    shutil.copy(f, "C:/Users/you/Downloads")
+
+#deletes the original zip file in the downloads folder
+os.chdir('C:/Users/xmfeser/Downloads')
+for file in os.listdir():
+    if file.endswith(".zip"):
+        os.remove(file)
