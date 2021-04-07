@@ -16,7 +16,10 @@ x = f_name
 
 #this is specifically if your zip file creates a sub directory with the same exact file name
 #sets new directory to sub folder in sub directory of extracted zip folder
-os.chdir('C:/Users/you/randomFolder/TEMP/' + x + '/subFolder')
+try: 
+    os.chdir('C:/Users/mikej/Downloads/JPEG/TEMP/' + x + '/subFolder')
+except:
+    os.chdir('C:/Users/mikej/Downloads/JPEG/TEMP/')
 #now we're going to copy it all back to that main directory where the original zip file lives
 for f in os.listdir():
     shutil.copy(f, "C:/Users/you/Downloads")
